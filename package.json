@@ -5,11 +5,12 @@
   "main": "lib/twainh.js",
   "scripts": {
     "pretest": "node-gyp rebuild --directory test",
-    "test": "node node_modules/mocha/bin/mocha -gc --reporter mocha-junit-reporter"
+    "test": "node node_modules/mocha/bin/mocha -gc --reporter mocha-junit-reporter",
+    "install": "prebuild-install || node-gyp rebuild"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/codenstein/twain-js.git"
+    "url": "git+https://github.com/iroot/twain-js.git"
   },
   "keywords": [
     "twain",
@@ -26,12 +27,15 @@
   },
   "homepage": "https://github.com/codenstein/twain-js#readme",
   "dependencies": {
-    "ffi": "^2.3.0",
-    "ref": "^1.3.5",
-    "ref-array": "^1.2.0",
-    "ref-struct": "github:enlightenedmouse/ref-struct",
-    "ref-union": "^1.0.1"
+    "ffi-napi": "https://github.com/iroot/node-ffi-napi/tarball/prebuild",
+    "ref-napi": "https://github.com/iroot/ref-napi/tarball/prebuild",
+    "ref-array": "https://github.com/iroot/ref-array/tarball/prebuild",
+    "ref-struct-di": "https://github.com/iroot/ref-struct-di/tarball/prebuild",
+    "ref-union": "https://github.com/iroot/ref-union/tarball/prebuild"
   },
+  "bundledDependencies": [
+    "prebuild-install"
+  ],
   "devDependencies": {
     "bindings": "^1.4.0",
     "mocha": "^5.2.0",
